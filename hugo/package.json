@@ -22,12 +22,12 @@
     "buildTags": "extended"
   },
   "dependencies": {
-    "hugo-extended": "*",
-    "htmx.org": "2.x",
-    "alpinejs": "3.x",
-    "lit": "3.x",
+    "hugo-extended": "^0.145.0",
+    "htmx.org": "^2.0.4",
+    "alpinejs": "^3.14.9",
+    "lit": "^3.2.1",
     "eslint": "*",
-    "@picocss/pico": "2.x",
+    "bootstrap": "^5.3.3",
     "sass": "*"
   },
   "repository": {
