@@ -16,6 +16,7 @@ const args = [];
 args.push("node_modules/sass/sass.js");
 args.push("--load-path=node_modules");
 args.push("--quiet-deps");
+args.push("--silence-deprecation=import");
 if (process.argv.includes("--watch")) {
     args.push("--style=expanded");
     args.push("--watch");
