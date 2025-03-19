@@ -55,6 +55,6 @@
       "targetPath" "built/website.js"
   ) }}
   {{- $main_js := resources.Get "js/website.js" | js.Build $js_opts | resources.Fingerprint }}
-  <script defer xxxsrc="{{ $main_js.RelPermalink }}"></script>
+  <script defer src="{{ $main_js.RelPermalink }}"></script>
 
 {{- /**/ -}}
