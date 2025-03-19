@@ -1,0 +1,18 @@
+<!doctype html>
+
+<html lang="{{ .Language.Lang }}">
+ <head>
+{{- partial "html/head/head-1.html" . }}
+ </head>
+
+ <body id="pg-body">
+{{ partial "html/header/topbar.html" . }}
+{{ block "main" . }}
+ <main id="pg-main">
+  <br><h1>Under Construction</h1>
+  <p>(from ./layouts/_default/baseof.html)</p>
+ </main>
+{{ end }}
+{{ partial "html/footer/footer-1.html" . }}
+ </body>
+</html>

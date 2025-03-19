@@ -1,0 +1,28 @@
+{{- /*
+Shortcode: pglink
+- Creates link to another Hugo page (<a ...>page title</a>)
+- Params:
+  - path: the page's path.
+  - text: inside the link; defaults to the page's title.
+  - hash: an anchore within the page (WITH the "#")
+*/}}
+{{- $path := index .Params 0 | default "" }}
+{{- $text := index .Params 1 }}
+{{- $hash := index .Params 2 | default "" }}
+
+{{- $err := "" }}
+
+{{- if eq $path "" }}
+  {{- $err = "path (arg 1) was not specified" }}
+{{- else }}
+  {{- with .Site.GetPage $path -}}
+<a href="{{ .Permalink }}{{ $hash }}">{{$text | default .Title}}</a>
+  {{- else }}
+    {{- $err = (printf `page path "%s" not found` $path) }}
+  {{- end }}
+{{- end }}
+{{- if ne $err "" }}
+  {{ printf `<span style="background-color:#ff0;">[[ERROR: pglink: %s]]</span>` $err }}
+{{- end }}
+
+{{- /**/ -}}

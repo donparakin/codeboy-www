@@ -1,0 +1,21 @@
+{{- $date := .Date.Format "2006-01-02" }}
+{{- $author := .Params.Author | default .Site.Params.Author }}
+
+{{- $p0 := "<div class=\"ws-byline\">" }}
+{{- $p1 := printf "&mdash; <time datetime=\"%s\">" $date }}
+{{- $p2 := print $date "</time>" }}
+{{- $p3 := print " &mdash; " $author }}
+{{- print $p0 $p1 $p2 $p3 | safeHTML }}
+
+{{- if .Params.tags }}
+  {{- print " &mdash; " | safeHTML }}
+  {{- $tags := slice }}
+  {{- range .Params.tags }}
+    {{- $html := print "<a href=\"/en/tags/" . "\">" . "</a>" }}
+    {{- $tags = $tags | append $html }}
+  {{- end }}
+  {{- print (delimit $tags ", ") | safeHTML }}
+{{- end }}
+{{- print "</div>" | safeHTML }}
+
+{{- /**/ -}}

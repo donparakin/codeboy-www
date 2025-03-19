@@ -1,0 +1,6 @@
+#---- Hugo
+hugo/public/
+hugo/resources/
+hugo/themes/*
+!hugo/themes/codeboy-2025
+hugo/themes/codeboy-2025/assets/built/

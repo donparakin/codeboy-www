@@ -1,0 +1,11 @@
+<article class="ws-blog-list-item">
+  <a href="{{ .RelPermalink }}" role="button" class="btn btn-outline-dark btn-sm float-end">Read</a>
+  <h1 class="h3 ws-blog-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  {{- with .Param "subtitle" }}
+  <h2>&ndash; {{.}}</h2>
+  {{- end }}
+  {{ partial "byline.html" . }}
+  <div class="ws-summary">
+    {{ .Summary | plainify | strings.TrimRight " \n" | safeHTML }}
+  </div>
+</article>

@@ -1,0 +1,15 @@
+[en]
+    title = "CodeBoy.dev"
+    languageCode = "en"
+    weight = 1
+    [en.params]
+        cbd = "CodeBoy.dev"
+
+[fr]
+    disabled = true
+    title = "CodeBoy.dev"
+    languageCode = "fr"
+#    contentDir = "content"
+    weight = 2
+    [fr.params]
+        cbd = "CodeBoy.dev"

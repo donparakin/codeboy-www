@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <main class="mt-3">
+    <div class="ws-content-grid ws-pg-title">
+      <h1 class="h2 breakout">{{ .Title | safeHTML }}</h1>
+    </div>
+    <div class="ws-content-grid">
+      <p>Topics:</p>
+      <ul>
+        {{- range .Data.Pages }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+  </main>
+{{ end }}

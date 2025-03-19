@@ -1,0 +1,59 @@
+// Ref: https://www.youtube.com/watch?v=c13gpBrnGEw
+// See below for sample HTML.
+/* NOTE: put both .fullwidth & .ws-content-grid on
+ the full-width section so inside is indent/centered.
+ */
+
+.ws-content-grid, .ws-content-grid.full {
+  --padding-inline: 1rem;
+  --content-max-width: 80ch;
+  --breakout-max-width: 100ch;
+
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width))/2);
+  --content-width: min(100% - 2*var(--padding-inline), var(--content-max-width));
+
+  display: grid;
+  grid-template-columns:
+    [full-start]
+      minmax(var(--padding-inline), 1fr)
+      [breakout-start]
+        minmax(0, var(--breakout-size))
+        [content-start]
+          var(--content-width)
+        [content-end]
+        minmax(0, var(--breakout-size))
+      [breakout-end]
+      minmax(var(--padding-inline), 1fr)
+    [full-end];
+
+}
+.ws-content-grid {
+  & > :not(.breakout, .full),
+  &.full > :not(.breakout, .full) { grid-column: content; }
+  & > .breakout { grid-column: breakout; }
+  & > .full { grid-column: full; }
+  h1, h2, h3 { grid-column: breakout; }
+  // h1, h2, h3, h4, h5, h6 { font-family: $ws-font-family-sans; }
+  a {
+    text-decoration: underline dotted 2px #999;
+    text-underline-offset: 0.25rem;
+    transition: all 0.5s;
+    &:hover {
+      text-decoration: underline solid 2px #999;
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+// <main>
+//  <article>
+//   <div class="ws-content-grid ws-pg-title">
+//    <h1 class="h2 breakout">{{ .Title | safeHTML }}</h1>
+//   </div>
+//   <div class="ws-content-grid">
+//     ... content ...
+//    <h2 class="breakout">Outdented Title</h2>
+//     ... content ...
+//   </div>
+//  </article>
+// </main>

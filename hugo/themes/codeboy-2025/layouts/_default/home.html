@@ -1,0 +1,17 @@
+{{- define "main" }}
+{{- $page := $.Site.GetPage "page" "/pages/home"}}
+{{- $list_blogs := where .Site.RegularPages "Section" "blog" | first 11 }}
+{{- /**/}}
+  <main id="pg-main" class="ws-home">
+    <div class="ws-layout-home">
+      <div class="">
+{{ partial "get-slot" (slice $page "welcome") }}
+      </div>
+      <div class="ws-blog-list">
+        {{- range $i, $pg := $list_blogs }}
+{{ partial "blog-list-item" $pg }}
+        {{- end }}
+      </div>
+    </div>
+  </main>
+{{- end }}

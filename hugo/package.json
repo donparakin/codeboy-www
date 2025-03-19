@@ -1,0 +1,50 @@
+{
+  "name": "codeboy.dev",
+  "version": "1.0.0",
+  "description": "CodeBoy.dev Website",
+  "main": "website.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hugo:build": "hugo --cleanDestinationDir",
+    "hugo:serve": "hugo server --panicOnWarning",
+    "hugo:serve+debug": "hugo server --verbose --disableFastRender",
+    "hugo:serve+drafts": "hugo server --buildDrafts",
+    "hugo:config": "hugo config",
+    "hugo:version": "hugo version",
+    "sass:build": "node themes/codeboy-2025/assets-src/css/build.cjs",
+    "sass:watch": "node themes/codeboy-2025/assets-src/css/build.cjs --watch",
+    "site:build": "npm run sass:build && npm run hugo:build"
+  },
+  "author": "Don Parakin",
+  "license": "UNLICENSED",
+  "hugo-bin": {
+    "buildTags": "extended"
+  },
+  "dependencies": {
+    "hugo-extended": "*",
+    "htmx.org": "2.x",
+    "alpinejs": "3.x",
+    "lit": "3.x",
+    "eslint": "*",
+    "@picocss/pico": "2.x",
+    "sass": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/parakin/codeboy_www.git"
+  },
+  "jshintConfig": {
+    "undef": true,
+    "unused": true,
+    "esversion": 11,
+    "browser": true,
+    "devel": true,
+    "worker": true,
+    "globals": {},
+    "eqeqeq": true,
+    "forin": true,
+    "trailingcomma": true,
+    "varstmt": true
+  }
+}

@@ -1,0 +1,31 @@
+{{/*
+Partial: get-slot
+- Get a "slot" or subset of the page's content.
+  The subset may contain other shortcodes and will be markdownified.
+- USAGE:
+  - In Hugo content files (./content/.../index.en.html):
+    [slot intro-text] ...slot-text... [/slot]
+  - In Hugo layouts files (./hugo/layouts/_default/home.html)
+    {{ partial "get-slot" (slice . "intro-text") }}
+    - Params:
+      - page: the page containing the slots (must have .RawContent)
+      - slot: id of the slot to markdownify and display.
+*/}}
+
+{{- $page := index . 0 }}
+{{- $slot_id := index . 1 }}
+
+{{- $regex := printf `(?s)\[slot\s+%s\]\s*(.*?)\[/slot]` $slot_id }}
+{{- $slots_all := findRESubmatch $regex $page.RawContent }}
+{{- if eq (len $slots_all) 0 }}
+  {{- errorf `get-slot: slot id "%s" not found in %s.`
+    $slot_id $page.File.Path }}
+{{- else }}
+  {{- with $slot := index $slots_all 0 }}
+    {{- with $inner := index $slot 1 }}
+      {{- $inner | markdownify }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- /**/ -}}
