@@ -5,6 +5,8 @@ description = "Yet another blog about computing"
 layout = "home"
 +++
 
-Content here is not used in the home page.
+[slot welcome]
+# Welcome {.h3}
 
-For the home page parts, look in the /content/home directory.
+to yet another blog about computing. In ./content/_index.md
+[/slot]
