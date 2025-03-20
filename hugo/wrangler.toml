@@ -2,11 +2,3 @@
 name = "codeboy-blog"
 compatibility_date = "2025-03-19"
 pages_build_output_dir = "./public"
-
-[build]
-command = "npm run site:build"
-cwd = "hugo"
-watch_dir = "hugo/public"
-
-[observability]
-enabled = true
