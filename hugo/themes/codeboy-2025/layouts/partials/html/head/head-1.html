@@ -17,7 +17,7 @@
   {{- with .Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{- end }}
   <meta name="theme-color" content="#fed34c">
   {{ hugo.Generator }}
-  <meta name="built" content="{{ now|dateFormat "2006-01-02T15:04:05-0700" }}">
+  <meta name="built" content="{{ now|dateFormat "2006-01-02T15:04:05-0700"|safeHTMLAttr }}">
   {{- with .OutputFormats.Get "rss"}}{{/* FIX: it escapes the valid + in type; safeHTMLAttr not work */}}
   {{ printf "<link rel=%q href=%q title=%q type=%q/>" .Rel .Permalink $.Site.Title .MediaType.Type | safeHTML }}
   {{- end }}
