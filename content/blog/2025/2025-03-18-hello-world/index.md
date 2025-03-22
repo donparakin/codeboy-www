@@ -1,8 +1,10 @@
----
-title: Hello World
-tags: ['blogging']
-layout: "blog/single"
----
++++
+title = "Hello World"
+author = "Don Parakin"
+# description = "Describe this blog post"
+# keywords = []
+tags = ["blogging"]
++++
 
 And so it begins ...
 <!--more-->

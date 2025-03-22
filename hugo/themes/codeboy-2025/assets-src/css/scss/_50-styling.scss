@@ -11,7 +11,7 @@ body > footer { background-color:#eee; padding-top:1rem; margin-top:2rem; }
   & > nav { border-bottom:0.5rem solid $cs-brand-hl0; }
   & > nav .container { max-width:1200px; }
   .ws-logo {
-    color:$cs-brand-hl0; font-size: 2.4rem; text-decoration: none;
+    color:$cs-brand-hl0; font-size: 2rem; text-decoration: none;
     font-family: Times, "Times New Roman", Georgia, serif;
     span { font-size: 60%; }
   }
@@ -25,9 +25,12 @@ body > footer { background-color:#eee; padding-top:1rem; margin-top:2rem; }
   & > *:nth-child(2) { flex: 100 24rem; }
 }
 
-//---- Blog List Item
+//---- Blog Lists
 .ws-blog-list-item {
-  .ws-blog-title a { color: inherit; text-decoration: none; border-top: 1px solid #888; }
+  &:nth-child(n+2) { margin-top:2rem; }
+  .ws-blog-title a {
+    color: inherit; text-decoration: none; border-top: 1px solid #888;
+  }
   .ws-go {
     float: right;
     font-size: 0.8rem;
@@ -37,4 +40,41 @@ body > footer { background-color:#eee; padding-top:1rem; margin-top:2rem; }
   }
 }
 
+//---- Blog Posts
 .ws-byline { font-size: 0.8rem; margin-bottom: 0.5rem; }
+.ws-pg-title {
+  background-color:#eee; padding:1rem 0.25rem;
+}
+fieldset.ws-toc {
+  border: 1px solid #888;
+  padding: 0.25rem 1rem; border-radius: 8px; margin-bottom: 1rem;
+
+  legend {
+    float: none;  // undo Bootstrap's float: left;
+    width: auto;  // undo Bootstrap's width: 100%;
+    color: #444; font-size: .7rem;
+    padding: 0 0.5rem;
+    margin-left: 3rem; margin-bottom: 0;
+  }
+  #TableOfContents {
+    ul {
+      margin: 0; padding: 0;
+      list-style: outside none;
+      font-size:0.8rem;
+      & ul {
+        & li {
+          padding-left: 14px;
+          text-indent: -14px;
+        }
+
+        & li:before {
+          content: "\2013\00a0";
+        }
+        // see https://css-tricks.com/snippets/html/glyphs/
+      }
+      a { text-decoration: none; color:#444; }
+    }
+  }
+}
+
+

@@ -3,4 +3,19 @@
 // Initialize before loading the CSS framework
 //======================================================================
 
-$cs-brand-hl0: rgb(254,211,76);   // University of Waterloo yellow
+$cs-brand-hl0: rgb(254,211,76);   // #fed34c: University of Waterloo yellow
+
+$h1-font-size: 2rem;
+$h2-font-size: 1.6rem;
+$h3-font-size: 1.4rem;
+$h4-font-size: 1.2rem;
+$h5-font-size: 1.0rem;
+$h6-font-size: 1.0rem;
+$display-font-sizes: (
+        1: 2rem,
+        2: 1.6rem,
+        3: 1.4rem,
+        4: 1.2rem,
+        5: 1.0rem,
+        6: 1.0rem
+);
